@@ -1,3 +1,12 @@
+#' Dictionary
+#'
+#' This is the beginning of a dictionary to explain the R terms and which functions they came from. 
+#' Will be useful when then code is bigger
+#'
+#' THIS FUNCTION IS STILL UNDER CONSTRUCTION
+#'
+#' @export
+
 dictionary <- function(word) {
   sanasto <- list()
   
