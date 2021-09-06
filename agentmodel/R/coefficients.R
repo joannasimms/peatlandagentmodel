@@ -2,6 +2,7 @@
 #' 
 #' This function is within the pop_and_geog.R function and provides the opinions of the farmers based on their willingness to adapt.
 #' 5 is very willing, 1 is not willing
+#' Opinions based on deomographic
 #'
 #' Demographic changes taken from LUKE.
 #' Sorvali, Jaana, Janne Kaseva, and Pirjo Peltonen-Sainio. "Farmer views on climate change—a longitudinal study of threats, opportunities and action." Climatic Change 164.3 (2021): 1-19.
@@ -37,6 +38,7 @@ novel.modi <- function(pop) {
 #' 
 #' This function is within the pop_and_geog.R function and provides the opinions of the farmers based on their opinions on biodiversity.
 #' 5 is to conserve as much as possible, 1 is unwillingness to conserve.
+#' Opinions based on deomographic
 #'
 #' Demographic changes taken from LUKE.
 #' Sorvali, Jaana, Janne Kaseva, and Pirjo Peltonen-Sainio. "Farmer views on climate change—a longitudinal study of threats, opportunities and action." Climatic Change 164.3 (2021): 1-19.
