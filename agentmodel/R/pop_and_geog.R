@@ -2,6 +2,9 @@
 #' 
 #' Build the population and geography based on Luke data.
 #'
+#' Function that uses regional statistics to generate a potential population and possible geography of Lapland.
+#' These features are later used to base the decisions on.
+#'
 #' @export
 
 pop_and_geog <- function(farm.soil.data, luke_age_dist, luke_voc, luke_organic_probs, av_farm_size_per_type) {
