@@ -2,8 +2,10 @@
 #' 
 #' Generates the Peatland Utility. 
 #' 
-#' Very simple formula
+#' U(land parcel) = profit  - f_{1} * opinion  * (GHG emissions_{old scenario}} - GHG emissions_{new scenario}) - f_{2} * opinion * (time taken to pay the original peatland loan back)
 #' 
+#' Each scenario is currently hard coded but this should be changed later. 
+#'
 #' @export
 
 peatland.utility <- function(fields, pop, row, scenario) {
