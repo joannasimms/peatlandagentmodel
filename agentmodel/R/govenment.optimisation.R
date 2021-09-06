@@ -6,6 +6,8 @@
 #' 
 #' Gives statistics on land in conservation.
 #'
+#' THIS IS CURRENTLY NOT OPERATIONAL
+#'
 #' @export
 
 govenment.optimisation <- function(fields.history) {
