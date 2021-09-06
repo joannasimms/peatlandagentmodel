@@ -1,3 +1,8 @@
+########
+## The current model procees
+########
+# TODO: make into a function
+
 # Build the population from population.R
 info <- pop_and_geog(farm.soil.data, luke_age_dist, luke_voc, luke_organic_probs, av_farm_size_per_type)
 pop <- info[[2]]
