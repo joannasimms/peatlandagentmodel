@@ -6,6 +6,8 @@
 #' q is the 
 #' p is 
 #' y is the possible values
+#'
+#' This is used in the pop_and_geog function for farm type.
 #' 
 #' @export
 
