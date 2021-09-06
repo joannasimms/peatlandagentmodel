@@ -1,6 +1,6 @@
 #' Pay Back Function
 #' 
-#' Checks if the peatland subsidy investment will make a profit within 50 years
+#' Checks if the peatland subsidy investment will make a profit within 50 years. If so a number is given, if not returns 9999.
 #' 
 #' @export
 
