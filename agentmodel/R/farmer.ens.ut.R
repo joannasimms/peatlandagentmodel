@@ -1,6 +1,6 @@
 #' Farmer Ens Ut
 #'
-#' Calculating the ens and ut for all fields.
+#' Calculating the ens and ut for all fields. See saga.R for ens and ut functions.
 #' 
 #' @export
 
