@@ -1,8 +1,15 @@
 #' Existence Need Satisfaction
 #' 
-#' the SAGA taken method to create a measure to base the agent decisions on.
+#' This function calculats the ENS (existance need statisfaction) of a land parcel for each subsidy in the model.
+#' This is hard coded so far, but could be improved with a list.
+#'
+#' ens = profit / potential profit of alternative farm magement stratergy
+#'
+#' The ENS function taken from the SAGA method (Van Duinen, 2016) to create a measure to base the agent decisions on.
+#' This function does not depend on farmer type as all farmers need to make a living.
+#'
+#' van Duinen, Rianne, et al. "Going beyond perfect rationality: drought risk, economic choices and the influence of social networks." The Annals of Regional Science 57.2 (2016): 335-369.
 #' 
-#' Not be edited by farmer type as all farmers need to make a living
 #' @export
 
 ens <- function(fields, subsidy) {
@@ -50,9 +57,16 @@ ens <- function(fields, subsidy) {
 
 #' Uncertainty Level
 #' 
-#' the SAGA taken method to create a measure to base the agent decisions on.
-#' 
-#' Not be edited by farmer type as all farmers need to make a living
+#' This function calculats the UT (utility) of a land parcel.
+#' This is hard coded so far, but could be improved with a list.
+#'
+#' ut = profit / next years profit with the same farming stratergy
+#'
+#' The UT function taken from the SAGA method (Van Duinen, 2016) to create a measure to base the agent decisions on.
+#' This function does not depend on farmer type as all farmers need to make a living.
+#'
+#' van Duinen, Rianne, et al. "Going beyond perfect rationality: drought risk, economic choices and the influence of social networks." The Annals of Regional Science 57.2 (2016): 335-369.
+#'
 #' @export
 
 ut <- function(fields) {
@@ -66,6 +80,7 @@ ut <- function(fields) {
 #' Row correlation 
 #' 
 #' To find the correlation between rows compared to a certain farm.
+#' This function sum the amount of exact matches there are between the farmers backgrounds as created in the poulation and geography function.
 #' 
 #' @export
 
@@ -81,13 +96,15 @@ row.correlation <- function(pop, row) {
 
 #' Strong Link True
 #' 
-#' This function compares the fields in terms of similarity via correlation.
-#' It then considers the farms that have a 70% correlation and checks what the
-#' subsidies and land uses the similar farms have chosen.
+#' This function compares the fields in terms of similarity of owner using the row.correlation function.
+#' 
+#' The farms that have a greater correlation than 5 - farmers opinion are then considered to have a strong link with the rest of the farm.
+#' If most of these farms have converted some of their fields than the farmers strongly linked community are considered to have given approval to the new managing method.
+#' Thus the output is true
+#'
 #' @export
 
 strong.link.true <- function(pop, fields, row) {
-  #ham.dist <- ham.dist[[row]]
   cor <- row.correlation(pop, row)
   p <- rep.int(0, times = nrow(fields))
   # which are the most similar farms
@@ -107,8 +124,10 @@ strong.link.true <- function(pop, fields, row) {
 
 #' Strong Link True
 #' 
-#' It then considers all of the farms (unlike stong.link.true) that and checks what the
-#' subsidies and land uses the similar farms have chosen.
+#' It then considers all of the farms (unlike stong.link.true).
+#' And then again makes the decision that if more than a certain level have converted their fields then the general farming community has approved.
+#' Thus giving a true result.
+#' 
 #' @export
 
 weak.link.true <- function(pop, fields, row) {
@@ -132,9 +151,11 @@ weak.link.true <- function(pop, fields, row) {
 #' 
 #' This is the function that controls the agent behavior. The two 
 #' functions ens and ut are checked and based on these numbers four actions can happen.
-#' If these actions are chosen the input dataframe "fields" is updated with the farmer utility
-#' for the said peatland scenario. If not the value is se to 0.
+#' If conversion is chosen the input dataframe "fields" is updated with the farmer utility
+#' for the said peatland scenario. If not the value is set to NA.
 #' 
+#' van Duinen, Rianne, et al. "Going beyond perfect rationality: drought risk, economic choices and the influence of social networks." The Annals of Regional Science 57.2 (2016): 335-369.
+#'
 #' @export
 
 social.action <- function(fields, pop) { # TODO: go through when opinions added
@@ -191,12 +212,12 @@ social.action <- function(fields, pop) { # TODO: go through when opinions added
 }
 
 
-# make the levels related to the farmers opinion
-
-#' Opinion to results
+#' Coefficients based on farmers opinions
 #'
-#' Creates the parameters for the SAGA process based on the opinion of the farmer
+#' Creates the parameters for the SAGA process based on the opinion of the farmer.
+#' Opinion disrubution and scales based on Luke studies.
 #'
+#' Sorvali, Jaana, Janne Kaseva, and Pirjo Peltonen-Sainio. "Farmer views on climate change—a longitudinal study of threats, opportunities and action." Climatic Change 164.3 (2021): 1-19.
 #'
 #' @export
 
