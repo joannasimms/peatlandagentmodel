@@ -1,7 +1,8 @@
 #' Agent Optimisation
 #' 
-#' This function chooses the subsidy scenario with the highest utility.
-#' Then the parcel soil type is updated.
+#' This function chooses the subsidy scenario with the highest utility, from the subsidies that are possible for each land parcel.
+#' Disqualifications made in peatland.possible.subs, saga and in this function.
+#' Then the parcel's crop and soil type are updated.
 #' 
 #' @export
 
